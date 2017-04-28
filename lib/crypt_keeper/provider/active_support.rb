@@ -2,7 +2,7 @@ require "active_support/message_encryptor"
 
 module CryptKeeper
   module Provider
-    class ActiveSupport
+    class ActiveSupport < Base
       attr_reader :encryptor
 
       # Public: Initializes the encryptor
