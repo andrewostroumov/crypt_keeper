@@ -112,7 +112,7 @@ There are four supported encryptors: `active_support`, `mysql_aes_new`, `postgre
 Searching ciphertext is a complex problem that varies depending on the encryption algorithm you choose. All of the bundled providers include search support, but they have some caveats.
 
 * ActiveSupport::MessageEncryptor
-  * ActiveSupport's MessageEncryptor uses a random initialize when generating keys. The same plaintext encrypted multiple times will have different output each time for the ciphertext. Since this is the case, it is not possible to search leveraging the database. Database rows will need to be filtered in memory. It is suggested that you use a scope or ActiveRecord batches to narrow the results before seaching them.
+  * ActiveSupport's MessageEncryptor uses a random initialization vector when generating keys. The same plaintext encrypted multiple times will have different output each time for the ciphertext. Since this is the case, it is not possible to search leveraging the database. Database rows will need to be filtered in memory. It is suggested that you use a scope or ActiveRecord batches to narrow the results before seaching them.
 
 * Mysql AES
  * Surprisingly, MySQL's implementation of AES does not use a random initialization vector. The column containing the ciphertext can be indexed and searched quickly.
